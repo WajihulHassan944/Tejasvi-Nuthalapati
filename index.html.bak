@@ -112,7 +112,7 @@
               <ion-icon name="trophy"></ion-icon>
             </div>
 
-            <img src="Image_6-removebg-preview.png" width="169" height="172" alt="I'm a Software Engineer from Santa Clara"
+            <img src="Image_7-removebg-preview.png" width="169" height="172" alt="I'm a Software Engineer from Santa Clara"
               class="rotate-img">
 
           </div>
@@ -130,7 +130,7 @@
             <div class="btn-group">
               <a href="#contact" class="btn btn-primary blue">Get a Quote</a>
 
-              <a href="#about" class="btn">About Me</a>
+              <a href="https://www.linkedin.com/in/ntejasvi/" class="btn">LinkedIn</a>
             </div>
 
           </div>
@@ -647,69 +647,76 @@
             Dliquip ex ea commo do conse namber onequa ute irure dolor in reprehen derit in voluptate
           </p>
 
-          <ul class="blog-list">
+          <ul class="blog-list" id="blogList">
 
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="./assets/images/blog-1.jpg" width="1181" height="843" loading="lazy"
-                      alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
-                  </a>
-                </figure>
-
-                <a href="#" class="card-tag">Web Development</a>
-
-                <h3 class="card-title">
-                  <a href="#">Jim Morisson Says when the musics over turn off the light</a>
-                </h3>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="./assets/images/blog-2.jpg" width="1181" height="843" loading="lazy"
-                      alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
-                  </a>
-                </figure>
-
-                <a href="#" class="card-tag">Web Development</a>
-
-                <h3 class="card-title">
-                  <a href="#">Jim Morisson Says when the musics over turn off the light</a>
-                </h3>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="./assets/images/blog-3.jpg" width="1181" height="843" loading="lazy"
-                      alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
-                  </a>
-                </figure>
-
-                <a href="#" class="card-tag">Web Development</a>
-
-                <h3 class="card-title">
-                  <a href="#">Jim Morisson Says when the musics over turn off the light</a>
-                </h3>
-
-              </div>
-            </li>
 
           </ul>
 
         </div>
       </section>
+
+
+
+<script>
+async function fetchImages() {
+  try {
+    const response = await fetch('https://blogs-admin-editor.vercel.app/blogsFmma');
+    const data = await response.json();
+
+    const imagesDiv = document.getElementById('blogList');
+
+    if (data.length === 0) {
+      // If no blogs found, display message
+      imagesDiv.innerHTML = '<p>No blogs found</p>';
+    } else {
+      data.forEach(blog => {
+        const formattedDate = blog.blogDate.split('T')[0];
+
+        // Create elements
+        const liElement = document.createElement('li');
+        const divBlogCard = document.createElement('div');
+        const figureCardBanner = document.createElement('figure');
+        const aTagBanner = document.createElement('a');
+        const imgBanner = document.createElement('img');
+        const aTagCardTag = document.createElement('a');
+        const h3CardTitle = document.createElement('h3');
+        const aTagCardTitle = document.createElement('a');
+
+        // Set attributes and inner HTML
+        liElement.innerHTML = `
+          <div class="blog-card">
+            <figure class="card-banner">
+              <a href="${blog.url}">
+                <img src="${blog.url}" width="1181" height="843" loading="lazy" alt="${blog.title}" class="img-cover">
+              </a>
+            </figure>
+            <a href="#" class="card-tag">${formattedDate}</a>
+            <h3 class="card-title">
+              <a href="${blog.url}">${blog.title}</a>
+            </h3>
+          </div>
+        `;
+
+        // Append elements
+        imagesDiv.appendChild(liElement);
+      });
+    }
+  } catch (error) {
+    console.error('Error fetching images:', error);
+  }
+}
+
+fetchImages();
+</script>
+
+
+
+
+
+
+
+
+
 
     </article>
   </main>
