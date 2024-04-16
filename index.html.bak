@@ -693,6 +693,8 @@ async function fetchImages() {
             <a href="#" class="card-tag">${formattedDate}</a>
             <h3 class="card-title">
               <a href="${blog.url}">${blog.title}</a>
+			  <a href="blog-details.html?blogId=${blog._id}">Learn more</a>
+			  
             </h3>
           </div>
         `;
