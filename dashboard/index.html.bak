@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -567,14 +567,12 @@ updateForm.addEventListener('submit', handleUpdateFormSubmit);
 const dashboardDivOne = document.getElementById("divOne");
 const dashboardDivTwo = document.getElementById("divTwo");
 const dashboardDivThree = document.getElementById("divThree");
-const dashboardDivFour = document.getElementById("divFour");
 
 function blogButton(){
 	
 	 dashboardDivThree.style.display = "block";
 	 dashboardDivOne.style.display = "none";
 	  dashboardDivTwo.style.display = "none";
-	  dashboardDivFour.style.display = "none";
 	  
 }
 
@@ -583,7 +581,6 @@ function dashboardButton(){
 	 dashboardDivThree.style.display = "none";
 	 dashboardDivOne.style.display = "block";
 	  dashboardDivTwo.style.display = "block";
-	  dashboardDivFour.style.display = "none";
 	  
 }
 
