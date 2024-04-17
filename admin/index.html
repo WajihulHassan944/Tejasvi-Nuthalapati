@@ -201,9 +201,9 @@ id="text" required></textarea>      </p>
       <div class="square">
 	  
        <form id="updateForm" enctype="multipart/form-data">
-	  <div id="imageUrlDisplay" style="display:none;" ></div>
+	
   <div class="banner bannerUpdate" id="banner">
-         <input type="file" name="image" id="imageInput" class="imageInputUpdate" style="display: none;" >
+         <input type="file" name="image" id="imageInput"  style="display:none;" >
     <label for="imageInput" id="imageLabel" class="banner-upload-btn imageLabelUpdate">
         <img src="https://tejasvinuthalapati.vercel.app/admin/upload.png" alt="upload banner">
     </label>
@@ -229,6 +229,41 @@ id="textUpdate" required></textarea>      </p>
 	 </div>
     </div>
    </div>
+   
+   
+   
+   
+   
+   <div id="divFive">
+		
+    <div class="containerView">
+      <div class="square">
+        <img src="" class="mask" id="imgView">
+     <div class="h1" id="hView"></div>
+        <p id="pView"></p>
+        
+     <div><a onclick="dashboardButton()" class="button">Dashboard</a></div>
+      </div>
+      
+      
+      
+      </div>
+      
+        
+      
+      
+    </div>
+    
+   
+   </div>
+   
+   
+   
+   
+   
+   
+   
+   
     
 			 
 			 </div>
@@ -247,7 +282,7 @@ id="textUpdate" required></textarea>      </p>
 .data-title {
     font-weight: 800; /* Set font weight to bold (800) */
   }
-  #divThree, #divFour{
+  #divThree, #divFour, #divFive{
 	display:none;
   }
 
@@ -323,6 +358,20 @@ document.getElementById('imageInput').addEventListener('change', function () {
 
 
 
+document.querySelector('.imageLabelUpdate').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('#imageInput').click();
+});
+
+// Set the uploaded image as the background of the div
+document.querySelector('#imageInput').addEventListener('change', function () {
+    const file = this.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        document.querySelector('.bannerUpdate').style.backgroundImage = `url(${e.target.result})`;
+    };
+    reader.readAsDataURL(file);
+});
 
 
 
@@ -390,7 +439,8 @@ async function fetchBlogs() {
         // Prepare HTML string for buttons
         columns.actions.values.push(
           `<button  data-id="${blog._id}" class="blogEditBtn">Edit</button> ` +
-          `<button class="blogDeleteButton" data-id="${blog._id}">Delete</button>` // Add data-id attribute to store the blog ID
+          `<button class="blogDeleteButton" data-id="${blog._id}">Delete</button>`+
+ `<button  data-id="${blog._id}" class="blogViewBtn">View</button> ` 		  // Add data-id attribute to store the blog ID
         );
       });
 
@@ -437,6 +487,23 @@ editButtons.forEach(button => {
 });
 
 
+// Event listener for "Edit" buttons
+const viewButtons = document.querySelectorAll('.blogViewBtn');
+viewButtons.forEach(button => {
+
+  button.addEventListener('click', () => {
+    const blogId = button.getAttribute('data-id');
+    populateView(blogId);
+	
+	document.getElementById("divFive").style.display = "block";
+	document.getElementById("divFour").style.display = "none";
+	document.getElementById("divOne").style.display = "none";
+	document.getElementById("divTwo").style.display = "none";
+	document.getElementById("divThree").style.display = "none";
+  });
+});
+
+
       // Add event listener for delete buttons
       const deleteButtons = document.querySelectorAll('.blogDeleteButton');
       deleteButtons.forEach(button => {
@@ -474,6 +541,7 @@ editButtons.forEach(button => {
   }
 }
 
+
 // Function to fetch and populate the form fields for updating a blog
 async function populateUpdateForm(blogId) {
   try {
@@ -485,15 +553,38 @@ async function populateUpdateForm(blogId) {
     document.getElementById('textUpdate').value = blog.text;
 document.getElementById('blogIdToUpdate').value = blogId;
 
-// document.querySelector('.bannerUpdate').style.backgroundImage = `url(${blog.url})`;
+document.querySelector('.bannerUpdate').style.backgroundImage = `url(${blog.url})`;
 
 
-    // Show the existing image URL or file name next to the file input field
-    const imageInput = document.getElementById('imageInput');
-    const imageUrlDisplay = document.getElementById('imageUrlDisplay');
-    imageUrlDisplay.textContent = blog.imageUrl; // Assuming the image URL field in the blog object is named "imageUrl"
-    imageUrlDisplay.style.display = 'block'; // Show the URL display element
-    imageInput.style.display = 'none'; // Hide the file input field
+   
+    } catch (error) {
+    console.error('Error fetching blog details:', error);
+    // Handle error appropriately (e.g., show error message)
+  }
+}
+
+
+
+
+
+
+async function populateView(blogId) {
+  try {
+    const response = await fetch(`https://blogs-admin-editor.vercel.app/blogFmma/${blogId}`);
+    const blog = await response.json();
+
+    // Populate form fields with blog data
+   document.getElementById('hView').textContent = blog.title;
+document.getElementById('pView').textContent = blog.text;
+ const imgDiv = document.getElementById('imgView');
+   
+
+imgDiv.src=`${blog.url}`;
+
+
+
+
+
 
     } catch (error) {
     console.error('Error fetching blog details:', error);
@@ -568,6 +659,7 @@ const dashboardDivOne = document.getElementById("divOne");
 const dashboardDivTwo = document.getElementById("divTwo");
 const dashboardDivThree = document.getElementById("divThree");
 const dashboardDivFour = document.getElementById("divFour");
+const dashboardDivFive = document.getElementById("divFive");
 
 function blogButton(){
 	
@@ -575,6 +667,7 @@ function blogButton(){
 	 dashboardDivOne.style.display = "none";
 	  dashboardDivTwo.style.display = "none";
 	  dashboardDivFour.style.display = "none";
+	  dashboardDivFive.style.display = "none";
 	  
 }
 
@@ -584,8 +677,19 @@ function dashboardButton(){
 	 dashboardDivOne.style.display = "block";
 	  dashboardDivTwo.style.display = "block";
 	  dashboardDivFour.style.display = "none";
+	  dashboardDivFive.style.display = "none";
 	  
 }
+
+
+
+
+
+
+
+
+
+
 
 </script>
 
