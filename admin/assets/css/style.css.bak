@@ -325,7 +325,6 @@ body {
   height: 50vh;
   display: grid;
   place-items: center;
-  display:none;
 }
 
 .hero-banner {

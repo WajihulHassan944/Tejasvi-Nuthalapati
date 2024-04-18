@@ -152,9 +152,12 @@
   transition: all 0.3s ease; 
  
 }
-
+.square ul li{
+	font-size:14px;
+	margin-bottom:10px;
+}
 .containerView .mask{
-  clip: rect(0px, 460px, 280px, 0px);
+  clip: rect(0px, 460px, 220px, 0px);
   border-radius: 4px;
   position: absolute;
 }
@@ -172,6 +175,7 @@
   font-family: 'Merriweather', serif;
   font-size: 24px;
 }
+
 .containerView p{
  text-align: justify; 
  padding-left: 30px;

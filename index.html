@@ -11,6 +11,8 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+<!-- aos css link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- 
     - google font link
@@ -20,6 +22,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
     rel="stylesheet">
+	
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
 </head>
 
 <body id="top">
@@ -32,7 +40,7 @@
     <div class="container">
 
       <a href="#">
-        <h1 class="logo">Tejasvi Nuthalapati </h1>
+        <h1 class="logo" data-aos="fade-up">Tejasvi Nuthalapati </h1>
       </a>
 
       <button class="nav-toggle-btn" aria-label="Toggle Menu" data-nav-toggle-btn>
@@ -44,31 +52,31 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            <a href="#home" class="navbar-link" data-nav-link data-aos="fade-up">Home</a>
           </li>
 
           <li>
-            <a href="#about" class="navbar-link" data-nav-link>About</a>
+            <a href="#about" class="navbar-link" data-nav-link data-aos="fade-up">About</a>
           </li>
 
           <li>
-            <a href="#portfolio" class="navbar-link" data-nav-link>Portfolio</a>
+            <a href="#portfolio" class="navbar-link" data-nav-link data-aos="fade-up">Portfolio</a>
           </li>
 
           <li>
-            <a href="#skills" class="navbar-link" data-nav-link>Skills</a>
+            <a href="#skills" class="navbar-link" data-nav-link data-aos="fade-up">Skills</a>
           </li>
 
           <li>
-            <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+            <a href="#contact" class="navbar-link" data-nav-link data-aos="fade-up">Contact</a>
           </li>
 
           <li>
-            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+            <a href="#blog" class="navbar-link" data-nav-link data-aos="fade-up">Blog</a>
           </li>
 
           <li>
-            <a href="#" class="btn btn-primary">Download CV</a>
+            <a href="#" class="btn btn-primary" data-aos="fade-up">Download CV</a>
           </li>
 
         </ul>
@@ -91,46 +99,46 @@
       <section class="hero" id="home">
         <div class="container">
 
-          <div class="hero-banner">
+          <div class="hero-banner" >
 
             <img src="myimg.jpg" width="800" height="864" loading="lazy" alt="Ethan's Photo"
-              class="img-cover">
+              class="img-cover" >
 
-            <div class="elem elem-1">
+            <div class="elem elem-1" data-aos="zoom-in">
               <p class="elem-title">7</p>
 
               <p class="elem-text">Years of Success</p>
             </div>
 
-            <div class="elem elem-2">
+            <div class="elem elem-2" data-aos="zoom-in">
               <p class="elem-title">800+</p>
 
               <p class="elem-text">Projects Completed</p>
             </div>
 
-            <div class="elem elem-3">
+            <div class="elem elem-3" data-aos="zoom-in">
               <ion-icon name="trophy"></ion-icon>
             </div>
 
             <img src="Image_7-removebg-preview.png" width="169" height="172" alt="I'm a Software Engineer from Santa Clara"
-              class="rotate-img">
+              class="rotate-img" data-aos="zoom-in">
 
           </div>
 
           <div class="hero-content">
 <h2 class="hero-title">
   <span>Hello I'm</span>
-  <strong>Tejasvi</strong>Software Engineer from Santa Clara
+  <strong data-aos="zoom-in">Tejasvi</strong>Software Engineer from Santa Clara
 </h2>
-<p class="hero-text">
+<p class="hero-text" data-aos="zoom-in">
   Passionate about building highly scalable and resilient systems that deliver value to Industry Leaders and stakeholders.
 </p>
 
 
             <div class="btn-group">
-              <a href="#contact" class="btn btn-primary blue">Get a Quote</a>
+              <a href="#contact" class="btn btn-primary blue" data-aos="zoom-in">Get a Quote</a>
 
-              <a href="https://www.linkedin.com/in/ntejasvi/" class="btn">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/ntejasvi/" class="btn" data-aos="zoom-in">LinkedIn</a>
             </div>
 
           </div>
@@ -182,7 +190,30 @@
 
         </div>
       </section>
+ <style>
+    /* Add your custom CSS styles here */
+    #calendly-inline-widget-container {
+      min-width: 320px;
+      height: 650px;
+    }
+  </style>
 
+      <section class="section portfolio" id="portfolio">
+        <div class="container">
+
+          <p class="section-subtitle">Schedule a Meeting</p>
+
+          <h2 class="h2 section-title">Book a Consultation</h2>
+
+          <p class="section-text">
+            Plan your next discussion with us. We're here to assist you in scheduling a meeting that fits your schedule seamlessly.
+          </p>
+
+
+  <div id="calendly-inline-widget-container"></div>
+   
+        </div>
+      </section>
 
 
 
@@ -877,6 +908,39 @@ fetchImages();
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<!-- aos js link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+
+   AOS.init({
+      duration:800,
+      delay:300
+   });
+
+</script>
+
+
+ <!-- Script to load the Calendly JavaScript file -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <script>
+    // Function to load Calendly inline widget
+    function loadCalendlyWidget() {
+      Calendly.initInlineWidget({
+        "url": 'https://calendly.com/blogtejasvi',
+        "parentElement": document.getElementById('calendly-inline-widget-container'),
+        "prefill": {},
+        "utm": {}
+      });
+    }
+
+    // Call the function to load the Calendly inline widget
+    loadCalendlyWidget();
+  </script>
 
 </body>
 

@@ -28,7 +28,10 @@
     - #HEADER
   -->
 
-  <header class="header" data-header>
+  <header class="header" data-header style=" background-color: hsl(243, 23%, 18%);
+    box-shadow: 0 -5px 10px hsl(254, 7%, 65%);
+    padding-block: 20px;
+  ">
     <div class="container">
 
       <a href="#">
@@ -88,19 +91,24 @@
         - #HERO
       -->
 
-      <section class="hero" id="home">
+    
+
+
+      <section class="section portfolio" id="portfolio" style="padding-top:170px;">
         <div class="container">
+<center><img src="" id="blogImg" style="width:300px; margin-bottom:70px; box-shadow:0 5px 15px rgba(0,0,0,0.3);"></center>
 
-          <div class="hero-content">
-<img src="" id="blogImg">
-<h1 id="blogTitle"></h1>
-<h2 id="blogDateId"></h2>
-<p id="blogTextId"></p>
-          </div>
+         
+          <h2 class="h2 section-title" id="blogTitle"></h2>
 
+          <p class="section-text" id="blogTextId" style="padding-bottom:0; margin-bottom:20px;">
+		  
+          </p>
+ <p class="section-subtitle" id="blogDateId"></p>
+
+ <a href="index.html" class="btn btn-primary">Go to Home</a>
         </div>
       </section>
-
 
 
 
@@ -140,7 +148,6 @@ imgDiv.src=`${data.url}`;
 
     fetchImages();
 </script>
-
 
 
 
