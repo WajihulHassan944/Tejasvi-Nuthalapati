@@ -596,7 +596,7 @@ textarea.contact-input {
 
 .blog-list {
   display: grid;
-  gap: 40px;
+  gap: 30px;
 }
 
 .blog-card { font-family: var(--ff-barlow); }

@@ -311,7 +311,6 @@ orderFormSubmit.addEventListener("submit", function(event) {
 
 
 
-
 <script>
 async function fetchImages() {
   try {
@@ -339,19 +338,22 @@ async function fetchImages() {
 
         // Set attributes and inner HTML
         liElement.innerHTML = `
-          <div class="blog-card" style="margin-bottom:30px;">
-            <figure class="card-banner" style="max-height:250px;">
+          <div class="blog-card" style="margin-bottom:30px; padding:20px; background-image: url(hero-bg.jpg); background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	box-shadow:0 10px 20px rgba(0,0,0,0.6)">
+            <figure class="card-banner" style="max-height:250px; border-radius:0;">
               <a href="blog-details.html?blogId=${blog._id}">
-                <img src="${blog.url}" width="1181" height="843" loading="lazy" alt="${blog.title}" class="img-cover">
+                <img src="${blog.url}" width="1181" height="843" loading="lazy" alt="${blog.title}" class="img-cover" >
               </a>
             </figure>
             <a href="#" class="card-tag" style="color:#fff;">${formattedDate}</a>
             <h3 class="card-title">
-              <a href="blog-details.html?blogId=${blog._id}" style="color:#6c8dd2; margin-bottom:10px;">${blog.title}</a>
-			    <div style="height:50px; overflow:hidden; margin-bottom:10px; color:#969fb6; font-weight:300;">${blog.text}</div>
+              <a href="blog-details.html?blogId=${blog._id}" style="color:#fff margin-bottom:10px;">${blog.title}</a>
+			    <div style="height:50px; overflow:hidden; margin-bottom:10px; color:#ccc; font-weight:300;">${blog.text}</div>
 			  <a href="blog-details.html?blogId=${blog._id}" style="padding:5px 0; padding-bottom:8px;
 				font-size:17px; font-weight:300;
-			  color:#fff; background:#fb523c; width:120px; border-radius:30px; text-align:center;">Read more</a>
+			  color:#fff; background:#fb523c; width:120px; border-radius:30px; text-align:center; box-shadow:0 10px 20px rgba(0,0,0,0.2);">Read more</a>
 			  
             </h3>
           </div>
@@ -370,17 +372,14 @@ fetchImages();
 </script>
 
 
+
+
+
 <style>
-.blog-card:hover{
-	background:#343d55;
-	border-radius:20px;
+.blog-card{
+margin-right:15px;
 }
 </style>
-
-
-
-
-
 
 
     </article>
