@@ -604,7 +604,7 @@ textarea.contact-input {
   margin-top:-200px;
 }
 
-.blog-card { font-family: var(--ff-barlow); width:380px;}
+.blog-card { font-family: var(--ff-barlow); width:330px;}
 
 .blog-card .card-banner {
   background-color: var(--independence);

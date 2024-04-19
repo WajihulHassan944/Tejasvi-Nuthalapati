@@ -601,7 +601,7 @@ textarea.contact-input {
   gap:50px;
   width:100%;
   flex-wrap:wrap;
-  margin-top:-20px;
+  margin-top:-200px;
 }
 
 .blog-card { font-family: var(--ff-barlow); width:380px;}

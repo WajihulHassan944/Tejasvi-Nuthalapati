@@ -134,7 +134,7 @@
 
 
             <div class="btn-group">
-              <a href="https://www.linkedin.com/in/ntejasvi/" class="btn btn-primary blue" data-aos="zoom-in">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/ntejasvi/" class="btn btn-primary blue" data-aos="zoom-in" target="_blank">LinkedIn</a>
 
               <a href="#contact" class="btn" data-aos="zoom-in">Contact me</a>
             </div>
