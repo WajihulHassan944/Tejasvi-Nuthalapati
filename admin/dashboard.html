@@ -84,7 +84,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="../index.html">
+                <li><a href="../portfolio/index.html">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -181,9 +181,10 @@
    
    </div>
 	   
+<input type="date" id="blogDate" name="blogDate" style="border:none; outline:none; color:black; width:100%; text-align: justify; font-family: 'Open Sans', sans-serif;  color: gray; padding-left:30px; padding-right:30px; margin-top:20px; margin-bottom:10px;">
+
 	   
-	   
-	   <div class="h1"><input type="text" id="title" placeholder="Blog Title" style="border:none; outline:none; color:black;font-weight:600; font-family: 'Merriweather', serif;"></div>
+	   <div class="h1" style="margin-top:0;"><input type="text" id="title" placeholder="Blog Title" style="border:none; outline:none; color:black;font-weight:600; font-family: 'Merriweather', serif;"></div>
 	  <p><textarea placeholder="Start writing here..." style="border:none; outline:none; color:black;  width:100%;text-align: justify; 
  font-family: 'Open Sans', sans-serif;
  font-size: 12px;
@@ -226,8 +227,11 @@ id="text" required></textarea>      </p>
    </div>
 	   <input type="hidden" value="" id="blogIdToUpdate">
 	   
+	      
+<input type="date" id="blogDateUpdate" name="blogDate" style="border:none; outline:none; color:black; width:100%; text-align: justify; font-family: 'Open Sans', sans-serif;  color: gray; padding-left:30px; padding-right:30px; margin-top:20px; margin-bottom:10px;">
+
 	   
-	   <div class="h1"><input type="text" id="titleUpdate" placeholder="Blog Title" style="border:none; outline:none; color:black;font-weight:600; font-family: 'Merriweather', serif;"></div>
+	   <div class="h1" style="margin-top:0;"><input type="text" id="titleUpdate" placeholder="Blog Title" style="border:none; outline:none; color:black;font-weight:600; font-family: 'Merriweather', serif;"></div>
 	  <p><textarea placeholder="Start writing here..." style="border:none; outline:none; color:black;  width:100%;text-align: justify; 
  font-family: 'Open Sans', sans-serif;
  font-size: 12px;
@@ -437,20 +441,19 @@ document.querySelector('#imageInput').addEventListener('change', function () {
 
 
 
-
-  document.getElementById('imageForm').addEventListener('submit', async function (e) {
+document.getElementById('imageForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     const title = document.getElementById('title').value;
     const text = document.getElementById('text').value;
-	const currentDate = new Date();
-     const formattedDate = currentDate.toISOString().split('T')[0];
+    const selectedDate = document.getElementById('blogDate').value; // Get selected date from input type date
+    const formattedDate = new Date(selectedDate).toISOString().split('T')[0]; // Convert selected date to ISO format
 
-loadingAnimation.style.display = "block";
+    loadingAnimation.style.display = "block";
 
     const formData = new FormData();
     formData.append('title', title);
     formData.append('text', text);
-	formData.append('blogDate', formattedDate);
+    formData.append('blogDate', formattedDate); // Send selected date to the backend
     formData.append('image', document.querySelector('input[type="file"]').files[0]);
 
     try {
@@ -459,8 +462,7 @@ loadingAnimation.style.display = "block";
             body: formData,
         });
         if (response.ok) {
-			  loadingAnimation.style.display = "none";
-	
+            loadingAnimation.style.display = "none";
             alert('Blog uploaded successfully');
             location.reload();
         } else {
@@ -468,11 +470,11 @@ loadingAnimation.style.display = "block";
         }
     } catch (error) {
         console.error('Error uploading blog:', error);
-		  loadingAnimation.style.display = "none";
-	
+        loadingAnimation.style.display = "none";
     }
-    location.reload();
 });
+
+
 
 async function fetchBlogs() {
   try {
@@ -615,6 +617,9 @@ async function populateUpdateForm(blogId) {
     document.getElementById('textUpdate').value = blog.text;
 document.getElementById('blogIdToUpdate').value = blogId;
 
+const blogDate = blog.blogDate.split('T')[0]; 
+document.getElementById('blogDateUpdate').value = blogDate; 
+
 document.querySelector('.bannerUpdate').style.backgroundImage = `url(${blog.url})`;
 
 
@@ -670,8 +675,10 @@ async function handleUpdateFormSubmit(event) {
 
   const title = document.getElementById('titleUpdate').value;
   const text = document.getElementById('textUpdate').value;
-  const currentDate = new Date();
-  const formattedDate = currentDate.toISOString().split('T')[0];
+  
+  const selectedDate = document.getElementById('blogDateUpdate').value;
+  const formattedDate = new Date(selectedDate).toISOString().split('T')[0]; // Convert selected date to ISO format
+
   const id = document.getElementById('blogIdToUpdate').value;
   const imageInput = document.querySelector('input[type="file"]');
   const loadingAnimation = document.getElementById('loadingAnimation'); // Assuming you have a loading animation element
