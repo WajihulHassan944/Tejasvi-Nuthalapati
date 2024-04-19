@@ -588,18 +588,23 @@ textarea.contact-input {
   #BLOG
 \*-----------------------------------*/
 
-.blog { padding-block-end: 120px; }
+.blog { padding-block-end: 1px;  }
 
 .blog .section-title { margin-block-end: 20px; }
 
-.blog .section-text { margin-block-end: 80px; }
+.blog .section-text { margin-block-end: 0px; }
 
 .blog-list {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  gap:50px;
+  width:100%;
+  flex-wrap:wrap;
+  margin-top:-20px;
 }
 
-.blog-card { font-family: var(--ff-barlow); }
+.blog-card { font-family: var(--ff-barlow); width:380px;}
 
 .blog-card .card-banner {
   background-color: var(--independence);
