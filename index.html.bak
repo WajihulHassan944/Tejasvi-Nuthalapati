@@ -209,8 +209,8 @@
       imagesDiv.innerHTML += `<div class="col-md-4 wow slideInUp" data-wow-delay="0.1s">
                                 <div class="blog-item rounded overflow-hidden" style="background:#fef1ef;">
                                     <div class="blog-img position-relative overflow-hidden">
-                                      <div style="height:300px; overflow:hidden;">  <img class="img-fluid" src="${image.url}" alt="" style="width:100%;cursor:pointer;"></div>
-                                        <a class="position-absolute top-0 start-0 text-white rounded-end mt-5 py-2 px-4" href="detail.html?blogId=${image._id}" style="background:#f9a392;">Tejasvi</a>
+                                      <div style="height:300px; overflow:hidden;">   <a href="detail.html?blogId=${image._id}"> <img class="img-fluid" src="${image.url}" alt="" style="width:100%;cursor:pointer;"></a></div>
+                                        <a class="position-absolute top-0 start-0 text-white rounded-end mt-5 py-2 px-4"  style="background:#f9a392;">Tejasvi</a>
                                     </div>
                                     <div class="p-4" style="background:#fef1ef;">
                                         <div class="d-flex mb-3">
