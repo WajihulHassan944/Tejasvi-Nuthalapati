@@ -207,7 +207,7 @@ loginForm.addEventListener('submit', async (event) => {
     const data = await response.json();
     if (response.ok) {
       alert(data.message);
-       window.location.href = `https://tejasvinuthalapati.vercel.app/admin/dashboard.html?loginSuccessful=true&objectId=${data.objectId}`;
+       window.location.href = `./dashboard.html?loginSuccessful=true&objectId=${data.objectId}`;
     } else {
       alert(data.message);
     }
