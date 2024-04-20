@@ -371,7 +371,7 @@ fetchImages();
 	margin-top:-150px;
 }
 .blog-card{
-	max-height:460px;
+	height:450px;
 }
 @media (max-width: 767px) {
 .blog-list{
